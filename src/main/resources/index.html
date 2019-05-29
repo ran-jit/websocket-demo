@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<span id="message"></span>
+
+<script type="text/javascript">
+    var ws = new WebSocket("ws://localhost:8080/data");
+
+    ws.onmessage = function (event) {
+        var mySpan = document.getElementById("message");
+        mySpan.innerHTML = event.data;
+    };
+
+    ws.onerror = function (event) {
+        console.log("Error: ", event)
+    }
+</script>
+</body>
+</html>
