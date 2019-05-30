@@ -36,7 +36,8 @@ public class Service {
         for (Session openSession : SESSIONS) {
             try {
                 if (openSession.isOpen()) {
-                    openSession.getBasicRemote().sendText(new Date().toString());
+                    //openSession.getBasicRemote().sendText(new Date().toString());
+                    openSession.getAsyncRemote().sendText(new Date().toString());
                 }
             } catch (Exception ex) {
                 // client session is broken or closed
